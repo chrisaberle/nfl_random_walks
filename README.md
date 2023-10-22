@@ -8,8 +8,8 @@ We begin with a Pandas dataframe where each row represents a team and the column
 betting market spreads. The script then picks a random walk through the season, scores it according to
 a heuristic, and keeps track of the best scoring heuristic across all iterations.
 
-Because the potential number of walks is so large (`18!` in week one) I've done some work to reduce the
-problem space:
+Because the potential number of walks is so large (over a septillion in week one) I've done some work to reduce the
+solution space:
 
 1. Weeks are ordered according to their difficulty. Weeks where there are few good choices are processed first.
 2. Weeks are also ordered according to average washout rates across many survivor pools.
@@ -116,8 +116,4 @@ is not very strong. Some known weaknesses I didn't have time to address before t
 1. **Future Value** is easy enough to calculate and often used in pool strategies but I haven't used it here.
 2. Related to #1, even with the aggressive washout rate week ordering this approach still uses good teams early. Because my pool allows two losses in weeks 1-11 it's especially suboptimal.
 3. Only a single feature, spread, is used for decision making. It is assumed that spread accounts for many other factors (home/away, streak, recent injuries, &c.) but this limits strategies that can be discovered.
-
-## Future
-
-I'm working on a Q-learning model for use in a future season. Rather than define the heuristic, I'd rather use something more sophisticated to _discover_ a heuristic via machine learning.
-
+4. When one looks at spread vs. actual win statistics historically, spread is a pretty poor measure of actual probability. Converting the script would yield better real-world results.

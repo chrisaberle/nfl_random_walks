@@ -100,7 +100,7 @@ week_columns = [str(week) for week in sorted_weeks]
 valid_walks = 0
 
 # Target number of random walks to generate
-num_walks = 200000  # Adjust as needed
+num_walks = 530000  # Adjust as needed
 
 # Spinning pipe characters for loading indicator
 spinning_pipe = ['|', '/', '-', '\\']
